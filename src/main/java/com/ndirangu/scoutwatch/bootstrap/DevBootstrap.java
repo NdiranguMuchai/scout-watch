@@ -30,6 +30,8 @@ initData();
     private void initData(){
         //COUNTRIES
         Country home = Country.KENYA;
+        Country tz = Country.TANZANIA;
+        Country ug = Country.UGANDA;
 
         //COACHES
         Coach ghost = new Coach("ghost", "mulei",home);
@@ -39,15 +41,34 @@ initData();
 
         //CLUB
         Club highlanders = new Club("highlanders", home);
+        highlanders.setCoach(ghost);
 
-        //PLAYER
+        Club terror = new Club("terror squad", home);
+        terror.setCoach(matano);
+
+        //PLAYERS
         Player mnona = new Player("striker", "mnoma","CF", "20000", home);
-        Player beki = new Player("beki wa", "kupanda na kushuka","LB", "150000", home);
         mnona.setClub(highlanders);
+
+        Player beki = new Player("beki wa", "kupanda na kushuka","LB", "150000", home);
         beki.setClub(highlanders);
+
         clubRepository.save(highlanders);
         playerRepository.save(mnona);
         playerRepository.save(beki);
+
+
+        Player gola = new Player("gola", "mjanja","GK", "800000", tz);
+        gola.setClub(terror);
+
+        Player sita = new Player("mid", "maestro","CDM", "150000", ug);
+        sita.setClub(terror);
+
+        clubRepository.save(terror);
+        playerRepository.save(gola);
+        playerRepository.save(sita);
+
+
 
 
 
