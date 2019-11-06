@@ -13,7 +13,6 @@ public class Coach {
     private String firstName;
     private String lastName;
     private Country nationality;
-    private Club club;
 
     public Coach(String firstName, String lastName, Country nationality) {
         this.firstName = firstName;
@@ -53,11 +52,5 @@ public class Coach {
         this.nationality = nationality;
     }
 
-    public Club getClub() {
-        return club;
-    }
 
-    public void setClub(Club club) {
-        this.club = club;
-    }
 }

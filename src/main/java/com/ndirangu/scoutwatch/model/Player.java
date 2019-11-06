@@ -1,9 +1,9 @@
 package com.ndirangu.scoutwatch.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Player {
@@ -15,7 +15,8 @@ public class Player {
     private String position;
     private String value;
     private Country nationality;
-    private Club club;
+    @ManyToMany(mappedBy = "players")
+    private Set<Club> club = new HashSet<>();
 
     public Player(String firstName, String lastName, String position, String value, Country nationality) {
         this.firstName = firstName;
@@ -73,11 +74,24 @@ public class Player {
         this.nationality = nationality;
     }
 
-    public Club getClub() {
+    public Set<Club> getClub() {
         return club;
     }
 
-    public void setClub(Club club) {
+    public void setClub(Set<Club> club) {
         this.club = club;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Objects.equals(id, player.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
