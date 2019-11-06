@@ -19,8 +19,9 @@ public class Club {
             inverseJoinColumns = @JoinColumn(name = "player_id"))
     private Set<Player> players = new HashSet<>();
 
-    public Club(String name) {
+    public Club(String name, Coach coach) {
         this.name = name;
+        this.coach = coach;
     }
 
     public Long getId() {
