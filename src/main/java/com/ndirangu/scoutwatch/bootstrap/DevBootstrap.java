@@ -37,6 +37,18 @@ initData();
         coachRepository.save(ghost);
         coachRepository.save(matano);
 
+        //CLUB
+        Club highlanders = new Club("highlanders", home);
+
+        //PLAYER
+        Player mnona = new Player("striker", "mnoma","CF", "20000", home);
+        Player beki = new Player("beki wa", "kupanda na kushuka","LB", "150000", home);
+        mnona.setClub(highlanders);
+        beki.setClub(highlanders);
+        clubRepository.save(highlanders);
+        playerRepository.save(mnona);
+        playerRepository.save(beki);
+
 
 
 
