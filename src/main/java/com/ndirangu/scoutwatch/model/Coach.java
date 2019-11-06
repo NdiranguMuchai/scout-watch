@@ -13,7 +13,7 @@ public class Coach {
     private String firstName;
     private String lastName;
     private Country nationality;
-
+public Coach(){}
     public Coach(String firstName, String lastName, Country nationality) {
         this.firstName = firstName;
         this.lastName = lastName;

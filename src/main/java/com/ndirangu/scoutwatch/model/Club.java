@@ -11,17 +11,18 @@ public class Club {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-
+    private Country location;
     @OneToOne
     private Coach coach;
-    @ManyToMany
-    @JoinTable(name = "player_clubs", joinColumns = @JoinColumn(name = "club_id"),
-            inverseJoinColumns = @JoinColumn(name = "player_id"))
+    @OneToMany(mappedBy = "club")
     private Set<Player> players = new HashSet<>();
 
-    public Club(String name, Coach coach) {
+    public Club(){}
+
+    public Club(String name, Country location) {
         this.name = name;
-        this.coach = coach;
+        this.location = location;
+
     }
 
     public Long getId() {

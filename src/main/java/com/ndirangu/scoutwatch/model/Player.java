@@ -15,9 +15,10 @@ public class Player {
     private String position;
     private String value;
     private Country nationality;
-    @ManyToMany(mappedBy = "players")
-    private Set<Club> club = new HashSet<>();
-
+    @ManyToOne
+    @JoinColumn(name = "club_id")
+    private Club club ;
+    public Player(){}
     public Player(String firstName, String lastName, String position, String value, Country nationality) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -74,11 +75,11 @@ public class Player {
         this.nationality = nationality;
     }
 
-    public Set<Club> getClub() {
+    public Club getClub() {
         return club;
     }
 
-    public void setClub(Set<Club> club) {
+    public void setClub(Club club) {
         this.club = club;
     }
 

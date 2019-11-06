@@ -28,16 +28,18 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 initData();
     }
     private void initData(){
+        //COUNTRIES
         Country home = Country.KENYA;
-        Coach ghost = new Coach("ghost", "mulei",home);
-        Player msee = new Player("ule", "msee", "CAM", "20,000", home);
-        Club highlanders = new Club("arsenal",ghost);
-        msee.getClub().add(highlanders);
-        highlanders.getPlayers().add(msee);
 
+        //COACHES
+        Coach ghost = new Coach("ghost", "mulei",home);
+        Coach matano = new Coach("robert", "matano", home);
         coachRepository.save(ghost);
-        playerRepository.save(msee);
-        clubRepository.save(highlanders);
+        coachRepository.save(matano);
+
+
+
+
 
     }
 }
