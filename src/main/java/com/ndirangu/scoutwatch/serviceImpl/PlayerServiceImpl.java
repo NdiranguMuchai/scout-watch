@@ -15,10 +15,13 @@ public class PlayerServiceImpl implements PlayerService {
         this.playerRepository = playerRepository;
     }
 
-
     @Override
     public Page<Player> listAll(Pageable pageable) throws Exception{
-
         return playerRepository.findAll(pageable);
+    }
+
+    @Override
+    public Long create(Player player) {
+        return playerRepository.save(player).getId();
     }
 }

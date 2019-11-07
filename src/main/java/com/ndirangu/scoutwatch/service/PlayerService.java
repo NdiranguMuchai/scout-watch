@@ -6,4 +6,5 @@ import org.springframework.data.domain.Pageable;
 
 public interface PlayerService {
     Page<Player> listAll(Pageable pageable)throws Exception;
+    Long create(Player player);
 }

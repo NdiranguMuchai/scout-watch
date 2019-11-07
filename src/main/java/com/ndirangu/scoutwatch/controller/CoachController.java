@@ -20,7 +20,7 @@ public class CoachController {
         this.coachService = coachService;
     }
 
-    @ApiOperation(value = "view a list of all coaches ", notes = "views a list of all coaches")
+    @ApiOperation(value = "view coaches ", notes = "views a list of all coaches")
     @GetMapping
     public Page<Coach> listAll(Pageable pageable){
         return coachService.listAll(pageable);
