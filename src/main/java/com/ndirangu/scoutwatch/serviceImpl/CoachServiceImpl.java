@@ -30,6 +30,6 @@ public class CoachServiceImpl implements CoachService {
 
     @Override
     public Long create(Coach coach) {
-        return null;
+        return coachRepository.save(coach).getId();
     }
 }
