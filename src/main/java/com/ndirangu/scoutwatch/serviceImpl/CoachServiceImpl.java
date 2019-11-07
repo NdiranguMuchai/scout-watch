@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CoachServiceImpl implements CoachService {
     private CoachRepository coachRepository;
@@ -18,5 +20,16 @@ public class CoachServiceImpl implements CoachService {
     @Override
     public Page<Coach> listAll(Pageable pageable) {
         return coachRepository.findAll(pageable);
+    }
+
+    @Override
+    public Optional<Coach> findById(Long coachId) throws Exception {
+//         coachRepository.findById(coachId).orElseThrow(()-> new Exception("Coach with id"+coachId+" not found"));
+         return coachRepository.findById(coachId);
+    }
+
+    @Override
+    public Long create(Coach coach) {
+        return null;
     }
 }
