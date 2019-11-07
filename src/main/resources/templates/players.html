@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Players available</title>
+</head>
+<body>
+<h1>Player List</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Nationality</th>
+        <th>Position</th>
+        <th>Value</th>
+        <th>Club</th>
+
+    </tr>
+    <tr th:each="player : ${players}">
+        <td th:text="${player.id}">123</td>
+        <td th:text="${player.firstName}">Spring in Action</td>
+        <td th:text="${player.lastName}">Wrox</td>
+        <td th:text="${player.nationality}">Wrox</td>
+        <td th:text="${player.position}">Wrox</td>
+        <td th:text="${player.value}">Wrox</td>
+        <td th:text="${player.club.getName()}">Wrox</td>
+
+    </tr>
+</table>
+
+</body>
+</html>

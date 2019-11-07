@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/club")
+@RequestMapping("/ngwashe")
 public class ClubController {
     private ClubService clubService;
 
@@ -18,8 +18,7 @@ public class ClubController {
 
 
     @GetMapping
-    public @ResponseBody
-    Page<Club> showAll(Pageable pageable){
+    public Page<Club> showAll(Pageable pageable){
         return clubService.listAll(pageable);
     }
 

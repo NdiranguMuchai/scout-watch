@@ -53,6 +53,9 @@ initData();
         Player beki = new Player("beki wa", "kupanda na kushuka","LB", "150000", home);
         beki.setClub(highlanders);
 
+        highlanders.getPlayers().add(mnona);
+        highlanders.getPlayers().add(beki);
+
         clubRepository.save(highlanders);
         playerRepository.save(mnona);
         playerRepository.save(beki);
@@ -63,6 +66,8 @@ initData();
 
         Player sita = new Player("mid", "maestro","CDM", "150000", ug);
         sita.setClub(terror);
+        terror.getPlayers().add(gola);
+        terror.getPlayers().add(sita);
 
         clubRepository.save(terror);
         playerRepository.save(gola);
