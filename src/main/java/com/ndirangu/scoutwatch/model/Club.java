@@ -57,6 +57,14 @@ public class Club {
         this.players = players;
     }
 
+    public Country getLocation() {
+        return location;
+    }
+
+    public void setLocation(Country location) {
+        this.location = location;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
