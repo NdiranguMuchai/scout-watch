@@ -25,11 +25,17 @@ public class CoachServiceImpl implements CoachService {
     @Override
     public Optional<Coach> findById(Long coachId) throws Exception {
 //         coachRepository.findById(coachId).orElseThrow(()-> new Exception("Coach with id"+coachId+" not found"));
-         return coachRepository.findById(coachId);
+        return coachRepository.findById(coachId);
     }
 
     @Override
     public Long create(Coach coach) {
+        return coachRepository.save(coach).getId();
+    }
+
+    @Override
+    public Long update(Coach coach) throws Exception{
+        coachRepository.findById(coach.getId()).orElseThrow(()-> new Exception("Coach with id"+coach.getId()+" not found"));
         return coachRepository.save(coach).getId();
     }
 }

@@ -10,4 +10,5 @@ public interface CoachService {
     Page<Coach> listAll(Pageable pageable);
     Optional<Coach> findById(Long coachId) throws Exception;
     Long create(Coach coach);
+    Long update(Coach coach) throws Exception;
 }

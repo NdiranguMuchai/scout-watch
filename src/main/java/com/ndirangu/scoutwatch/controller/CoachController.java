@@ -31,9 +31,16 @@ public class CoachController {
     public Optional<Coach> findOne( @PathVariable Long coachId) throws Exception{
         return coachService.findById(coachId);
     }
-    @ApiOperation(value = "creates a new coach" )
+    @ApiOperation(value = "create a coach" )
     @PostMapping("/create")
     public @ResponseBody Long create(@RequestBody Coach coach){
         return coachService.create(coach);
+    }
+    @ApiOperation(value = "update a coach")
+    @PutMapping("/{coachId}")
+    public @ResponseBody Long update(@RequestBody Coach coach, @PathVariable Long coachId)throws Exception{
+        coachService.findById(coachId).orElseThrow(()-> new Exception("coach with id "+coachId+" not found"));
+        coach.setId(coachId);
+        return coachService.update(coach);
     }
 }
