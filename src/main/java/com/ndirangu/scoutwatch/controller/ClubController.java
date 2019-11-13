@@ -21,13 +21,13 @@ public class ClubController {
         this.clubService = clubService;
     }
 
-    @ApiOperation(value = "view all clubs")
+    @ApiOperation(value = "return all clubs")
     @GetMapping
     public Page<Club> showAll(Pageable pageable){
         return clubService.listAll(pageable);
     }
 
-    @ApiOperation(value = "view all clubs")
+    @ApiOperation(value = "return one club")
     @GetMapping("/{clubId}")
     public @ResponseBody
     Optional<Club> findOne(@PathVariable Long clubId){
