@@ -6,26 +6,16 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Player {
+public class Player extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String firstName;
-    private String lastName;
     private String position;
     private String value;
-    private Country nationality;
     @ManyToOne
     @JoinColumn(name = "club_id")
     private Club club ;
     public Player(){}
-    public Player(String firstName, String lastName, String position, String value, Country nationality) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.position = position;
-        this.value = value;
-        this.nationality = nationality;
-    }
 
     public Long getId() {
         return id;
@@ -35,21 +25,6 @@ public class Player {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getPosition() {
         return position;
@@ -67,13 +42,6 @@ public class Player {
         this.value = value;
     }
 
-    public Country getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(Country nationality) {
-        this.nationality = nationality;
-    }
 
     public Club getClub() {
         return club;
