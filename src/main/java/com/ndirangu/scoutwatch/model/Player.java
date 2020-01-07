@@ -1,29 +1,21 @@
 package com.ndirangu.scoutwatch.model;
 
 import javax.persistence.*;
-import java.util.HashSet;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 public class Player extends Person{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
+    @NotNull(message = "Position is required")
     private String position;
-    private String value;
+    @NotNull(message = "Value is required")
+    private float value;
     @ManyToOne
     @JoinColumn(name = "club_id")
     private Club club ;
     public Player(){}
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 
     public String getPosition() {
@@ -34,11 +26,11 @@ public class Player extends Person{
         this.position = position;
     }
 
-    public String getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(float value) {
         this.value = value;
     }
 
@@ -51,16 +43,5 @@ public class Player extends Person{
         this.club = club;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Player player = (Player) o;
-        return Objects.equals(id, player.id);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

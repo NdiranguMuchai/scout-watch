@@ -3,7 +3,7 @@ package com.ndirangu.scoutwatch.model;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class Team {
+public class Team extends BaseEntity{
 private String name;
 private Country location;
 
