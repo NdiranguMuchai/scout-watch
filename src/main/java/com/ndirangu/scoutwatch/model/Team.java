@@ -1,11 +1,8 @@
 package com.ndirangu.scoutwatch.model;
 
-import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
 public class Team extends BaseEntity{
 private String name;
-private Country location;
 
     public String getName() {
         return name;
@@ -15,11 +12,5 @@ private Country location;
         this.name = name;
     }
 
-    public Country getLocation() {
-        return location;
-    }
 
-    public void setLocation(Country location) {
-        this.location = location;
-    }
 }
