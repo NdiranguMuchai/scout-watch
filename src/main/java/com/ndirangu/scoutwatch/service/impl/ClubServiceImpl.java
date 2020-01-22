@@ -3,11 +3,9 @@ package com.ndirangu.scoutwatch.service.impl;
 import com.ndirangu.scoutwatch.model.Club;
 import com.ndirangu.scoutwatch.repostiory.ClubRepository;
 import com.ndirangu.scoutwatch.service.ClubService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class ClubServiceImpl  implements ClubService {
@@ -18,24 +16,28 @@ public class ClubServiceImpl  implements ClubService {
     }
 
     @Override
-    public Optional<Club> findOne(Long id) {
-        return clubRepository.findById(id);
+    public Set<Club> findAll() {
+        return null;
     }
 
     @Override
-    public Long update(Club club) throws Exception {
-        clubRepository.findById(club.getId()).orElseThrow(() -> new Exception("club with id "+club.getId()+" not found"));
-        return clubRepository.save(club).getId();
+    public Club findById(Long aLong) {
+        return null;
     }
 
     @Override
-    public Long create(Club club) {
-        return clubRepository.save(club).getId();
+    public Club save(Club object) {
+        return null;
     }
 
     @Override
-    public Page<Club> listAll(Pageable pageable) {
-        return clubRepository.findAll(pageable);
+    public void delete(Club object) {
+
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+
     }
 }
 
