@@ -1,4 +1,4 @@
-package com.ndirangu.scoutwatch.serviceImpl;
+package com.ndirangu.scoutwatch.service.impl;
 
 import com.ndirangu.scoutwatch.model.Club;
 import com.ndirangu.scoutwatch.repostiory.ClubRepository;

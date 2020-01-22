@@ -1,8 +1,6 @@
-package com.ndirangu.scoutwatch.serviceImpl;
+package com.ndirangu.scoutwatch.service.impl;
 
-import com.ndirangu.scoutwatch.model.Club;
 import com.ndirangu.scoutwatch.model.Player;
-import com.ndirangu.scoutwatch.repostiory.ClubRepository;
 import com.ndirangu.scoutwatch.repostiory.PlayerRepository;
 import com.ndirangu.scoutwatch.service.PlayerService;
 import org.springframework.data.domain.Page;

@@ -1,4 +1,4 @@
-package com.ndirangu.scoutwatch.serviceImpl;
+package com.ndirangu.scoutwatch.service.impl;
 
 import com.ndirangu.scoutwatch.model.Coach;
 import com.ndirangu.scoutwatch.repostiory.CoachRepository;

@@ -15,6 +15,6 @@ public class DisplayCoach {
     @RequestMapping("/coaches")
     public String getCoaches(Model model){
         model.addAttribute("coaches", coachRepository.findAll());
-        return "coaches";
+        return "coach/coaches";
     }
 }

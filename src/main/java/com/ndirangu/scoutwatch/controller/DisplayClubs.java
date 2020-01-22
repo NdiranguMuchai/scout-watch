@@ -15,6 +15,6 @@ public class DisplayClubs {
     @RequestMapping("/clubs")
     public String getClubs(Model model){
         model.addAttribute("clubs", clubRepository.findAll());
-        return "clubs";
+        return "club/clubs";
     }
 }

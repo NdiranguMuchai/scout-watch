@@ -15,6 +15,6 @@ public class DisplayPlayers {
     @RequestMapping("/players")
     public String getPlayers(Model model){
         model.addAttribute("players", playerRepository.findAll());
-        return "players";
+        return "player/players";
     }
 }
