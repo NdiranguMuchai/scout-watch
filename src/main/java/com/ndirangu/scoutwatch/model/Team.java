@@ -1,5 +1,8 @@
 package com.ndirangu.scoutwatch.model;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Team extends BaseEntity {
     private String name;
 
