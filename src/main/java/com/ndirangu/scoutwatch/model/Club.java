@@ -14,8 +14,6 @@ public class Club  extends Team{
     @OneToOne
     private Coach coach;
 
-
-
     public Set<Player> getPlayers() {
         return players;
     }
