@@ -1,10 +1,9 @@
 package com.ndirangu.scoutwatch.repository;
 
-import com.ndirangu.scoutwatch.model.Player;
+import com.ndirangu.scoutwatch.model.Position;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface PlayerRepository extends JpaRepository<Player, UUID> {
-    
+public interface PositionRepository extends JpaRepository<Position, UUID> {
 }
