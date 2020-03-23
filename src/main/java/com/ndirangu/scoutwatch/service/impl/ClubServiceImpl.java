@@ -1,9 +1,7 @@
 package com.ndirangu.scoutwatch.service.impl;
 
 import com.ndirangu.scoutwatch.model.Club;
-import com.ndirangu.scoutwatch.model.Coach;
-import com.ndirangu.scoutwatch.repository.ClubRepository;
-import com.ndirangu.scoutwatch.repository.CoachRepository;
+import com.ndirangu.scoutwatch.repository.ClubRepository;;
 import com.ndirangu.scoutwatch.service.ClubService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
