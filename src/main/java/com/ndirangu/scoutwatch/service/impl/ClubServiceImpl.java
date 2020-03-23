@@ -14,11 +14,9 @@ import java.util.UUID;
 @Service
 public class ClubServiceImpl implements ClubService {
     private final ClubRepository clubRepository;
-    private final CoachRepository coachRepository;
 
-    public ClubServiceImpl(ClubRepository clubRepository, CoachRepository coachRepository) {
+    public ClubServiceImpl(ClubRepository clubRepository) {
         this.clubRepository = clubRepository;
-        this.coachRepository = coachRepository;
     }
 
     @Override
@@ -34,11 +32,6 @@ public class ClubServiceImpl implements ClubService {
 
     @Override
     public UUID create(Club club) throws Exception {
-//        Coach coach = new Coach();
-//        coach.setId(UUID.fromString("96898168-c423-4991-9fed-ab359d26e8bb"));
-//        coach.setName("Coach wa thika");
-//        coachRepository.save(coach);
-//        club.setCoach(coach);
         if (club.getCoach().getId() == null){
             throw new Exception("Coach property is required");
         }

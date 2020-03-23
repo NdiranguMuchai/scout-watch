@@ -1,8 +1,6 @@
 package com.ndirangu.scoutwatch.controller;
 
 import com.ndirangu.scoutwatch.model.Club;
-import com.ndirangu.scoutwatch.model.Coach;
-import com.ndirangu.scoutwatch.repository.ClubRepository;
 import com.ndirangu.scoutwatch.service.ClubService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -36,10 +34,6 @@ public class ClubController {
 
     @PostMapping("/create")
     public @ResponseBody UUID create(@RequestBody Club club) throws Exception{
-//        UUID coachId = UUID.fromString("96898168-c423-4991-9fed-ab359d26e8bb");
-//        Coach waHiiTeam = new Coach();
-//        waHiiTeam.setId(coachId);
-//        club.setCoach(waHiiTeam);
         return clubService.create(club);
     }
 
