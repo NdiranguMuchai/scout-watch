@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.UUID;
 @Service
-public class ClubServiceImpl implements ClubService {
+public class
+ClubServiceImpl implements ClubService {
     private final ClubRepository clubRepository;
 
     public ClubServiceImpl(ClubRepository clubRepository) {
