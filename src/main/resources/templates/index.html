@@ -5,6 +5,7 @@
     <title>Scout watch Api</title>
 </head>
 <body>
+
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -31,17 +32,17 @@
                     <span>Home</span>
                 </li>
 
-                <li th:replace="::menuItem ('/owners/find','owners','find owners','search','Docs')">
+                <li th:replace="::menuItem ('/docs.html','docs','docs','search','Docs')">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <span>Docs</span>
                 </li>
 
-                <li th:replace="::menuItem ('/vets.html','vets','veterinarians','th-list','About')">
+                <li th:replace="::menuItem ('/vets.html','vets','about','th-list','About')">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>About</span>
                 </li>
 
-                <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Support')">
+                <li th:replace="::menuItem ('/oups','error','support','warning-sign','Support')">
                     <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
                     <span>Support</span>
                 </li>
@@ -58,5 +59,9 @@
         <img class="img-responsive" src="../static/images/player_silhouette.png" th:src="@{/images/player_silhouette.png}"/>
     </div>
 </div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
