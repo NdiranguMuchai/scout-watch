@@ -1,6 +1,8 @@
 package com.ndirangu.scoutwatch.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,7 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "player")
 public class Player  extends Person{
-
+    @JsonIgnore
     @ManyToOne
     private Club club;
 

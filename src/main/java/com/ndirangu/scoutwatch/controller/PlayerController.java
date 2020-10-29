@@ -4,6 +4,7 @@ import com.ndirangu.scoutwatch.model.Club;
 import com.ndirangu.scoutwatch.model.Player;
 import com.ndirangu.scoutwatch.service.ClubService;
 import com.ndirangu.scoutwatch.service.PlayerService;
+import com.ndirangu.scoutwatch.service.PositionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.data.domain.Page;
@@ -17,11 +18,11 @@ import java.util.UUID;
 @RequestMapping("/player")
 public class PlayerController {
     private final PlayerService playerService;
-    private final ClubService clubService;
+    private final PositionService positionService;
 
-    public PlayerController(PlayerService playerService, ClubService clubService) {
+    public PlayerController(PlayerService playerService, PositionService positionService) {
         this.playerService = playerService;
-        this.clubService = clubService;
+        this.positionService = positionService;
     }
 
     @ApiOperation(value = "Returns a list of all players")
@@ -37,14 +38,19 @@ public class PlayerController {
         return playerService.create(player);
     }
 
-    @ApiOperation(value = "Assigns a player to a club")
-    @PutMapping("/{playerId}/sign/{clubId}")
-    public @ResponseBody UUID assignClub(@PathVariable UUID playerId,
-                                         @RequestBody Player player,
-                                         @PathVariable UUID clubId
-                                          ) throws  Exception{
-        playerService.findOne(playerId).orElseThrow(()-> new Exception("player with id "+playerId+" not found"));
-        return playerService.assignClub(clubId);
+    @ApiOperation(value = "Assigns a player their position")
+    @PutMapping("/{playerId}/position/{positionId}")
+    public @ResponseBody UUID assignPosition(@PathVariable UUID playerId,
+                                             @PathVariable UUID positionId) throws Exception{
+        playerService.findOne(playerId).orElseThrow(()-> new Exception("Player with id "+playerId+" not found"));
+        positionService.findOne(positionId).orElseThrow(()-> new Exception("Player with id "+positionId+" not found"));
 
+        Player player = new Player();
+        player.setId(playerId);
+        player.setName(player.getName());
+        player.setClub(player.getClub());
+
+        return playerService.assignPosition(playerId,positionId);
     }
+
 }

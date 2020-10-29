@@ -11,6 +11,7 @@ public interface PlayerService {
     Page<Player> list(Pageable pageable);
     Optional<Player> findOne(UUID id) throws Exception;
     UUID create(Player player);
-    UUID assignClub(UUID clubId) throws  Exception;
+    UUID assignPosition(UUID playerId, UUID positionId) throws Exception;
+
 
 }

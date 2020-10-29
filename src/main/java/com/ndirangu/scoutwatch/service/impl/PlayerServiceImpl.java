@@ -4,6 +4,7 @@ import com.ndirangu.scoutwatch.model.Club;
 import com.ndirangu.scoutwatch.model.Player;
 import com.ndirangu.scoutwatch.repository.ClubRepository;
 import com.ndirangu.scoutwatch.repository.PlayerRepository;
+import com.ndirangu.scoutwatch.repository.PositionRepository;
 import com.ndirangu.scoutwatch.service.PlayerService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,11 +16,11 @@ import java.util.UUID;
 @Service
 public class PlayerServiceImpl implements PlayerService {
     private final PlayerRepository playerRepository;
-    private final ClubRepository clubRepository;
+    private final PositionRepository positionRepository;
 
-    public PlayerServiceImpl(PlayerRepository playerRepository, ClubRepository clubRepository) {
+    public PlayerServiceImpl(PlayerRepository playerRepository, PositionRepository positionRepository) {
         this.playerRepository = playerRepository;
-        this.clubRepository = clubRepository;
+        this.positionRepository = positionRepository;
     }
 
     @Override
@@ -39,13 +40,15 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public UUID assignClub(UUID clubId) throws Exception {
+    public UUID assignPosition(UUID playerId, UUID positionId) throws Exception {
+        playerRepository.findById(playerId).orElseThrow(()-> new Exception("player with id "+playerId+" not found"));
+        positionRepository.findById(positionId).orElseThrow(()-> new Exception("position with id "+positionId+" not found"));
+
         Player player = new Player();
-        return  clubRepository.findById(clubId).map(club -> {
-            player.setClub(club);
-            return clubId;
-        }).orElseThrow(()-> new Exception("club with id "+clubId+" doesn't exist"));
+        player.setId(playerId);
+        player.setName(player.getName());
+        player.setClub(player.getClub());
 
+        return playerRepository.save(player).getId();
     }
-
 }

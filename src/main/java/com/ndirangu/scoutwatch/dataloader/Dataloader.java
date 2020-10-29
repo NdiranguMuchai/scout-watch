@@ -13,7 +13,9 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class Dataloader implements CommandLineRunner {
+public class Dataloader
+        implements CommandLineRunner
+{
     private final ClubRepository clubRepository;
     private final CoachRepository coachRepository;
     private final PlayerRepository playerRepository;
