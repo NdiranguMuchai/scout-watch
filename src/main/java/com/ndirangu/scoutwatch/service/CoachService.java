@@ -13,4 +13,5 @@ public interface CoachService {
     UUID create(Coach coach) throws Exception;
     UUID update(Coach coach) throws Exception;
     UUID delete(Coach coach) throws Exception;
+    UUID assignClub(UUID clubId, Coach coach) throws Exception;
 }

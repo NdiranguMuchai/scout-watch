@@ -10,7 +10,8 @@ import java.util.UUID;
 public interface ClubService {
     Page<Club> list(Pageable pageable);
     Optional<Club> findOne(UUID id) throws Exception;
-    UUID create(Club club) throws Exception;
+    UUID create(Club club) ;
     UUID update(Club club) throws Exception;
     UUID delete(Club club) throws Exception;
+    UUID assignCoach(UUID coachId, Club club) throws Exception;
 }

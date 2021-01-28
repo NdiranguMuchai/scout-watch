@@ -1,6 +1,7 @@
 package com.ndirangu.scoutwatch.service.impl;
 
 import com.ndirangu.scoutwatch.model.Coach;
+import com.ndirangu.scoutwatch.repository.ClubRepository;
 import com.ndirangu.scoutwatch.repository.CoachRepository;
 import com.ndirangu.scoutwatch.service.CoachService;
 import org.springframework.data.domain.Page;
@@ -13,9 +14,12 @@ import java.util.UUID;
 @Service
 public class CoachServiceImpl implements CoachService {
     private final CoachRepository coachRepository;
+    private final ClubRepository clubRepository;
 
-    public CoachServiceImpl(CoachRepository coachRepository) {
+    public CoachServiceImpl(CoachRepository coachRepository,
+                            ClubRepository clubRepository) {
         this.coachRepository = coachRepository;
+        this.clubRepository = clubRepository;
     }
 
     @Override
@@ -45,5 +49,18 @@ public class CoachServiceImpl implements CoachService {
     @Override
     public UUID delete(Coach coach) throws Exception {
         return null;
+    }
+
+    @Override
+    public UUID assignClub(UUID clubId, Coach coach) throws Exception {
+        clubRepository.findById(clubId).orElseThrow(()-> new Exception("club with id "+clubId+" not found"));
+
+        coach.setId(coach.getId());
+        coach.setName(coach.getName());
+
+        coach.setClub(clubRepository.findById(clubId).orElseThrow(
+                ()-> new Exception("club with id "+clubId+" not found")));
+
+        return coachRepository.save(coach).getId();
     }
 }

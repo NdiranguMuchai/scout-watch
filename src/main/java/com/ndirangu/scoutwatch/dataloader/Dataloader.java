@@ -35,8 +35,8 @@ public class Dataloader
     public void run(String... args) throws Exception {
         //creating position
         Position gola = new Position();
-        gola.setName("right back");
-        gola.setAbbreviation("RB");
+        gola.setName("Goal Keeper");
+        gola.setAbbreviation("GK");
         Position savedGola = positionRepository.save(gola);
 
         //position2
@@ -58,12 +58,12 @@ public class Dataloader
 
 
         //club
-        Club waleWasee = new Club();
-        waleWasee.setName("Rurie");
+        Club rurie = new Club();
+        rurie.setName("Rurie");
 
-        waleWasee.setCoach(savedSting);
+        rurie.setCoach(savedSting);
 
-       Club savedWaleeWasee = clubRepository.save(waleWasee);
+       Club savedRurie = clubRepository.save(rurie);
 
         //club 2
         Club kiamumbi = new Club();
@@ -75,10 +75,10 @@ public class Dataloader
 
         //player1
         Player dira = new Player();
-        dira.setName("drogba");
+        dira.setName("dira");
 
         dira.getPositions().add(savedGola);
-        dira.setClub(savedWaleeWasee);
+        dira.setClub(savedRurie);
         playerRepository.save(dira);
 
         //player 2

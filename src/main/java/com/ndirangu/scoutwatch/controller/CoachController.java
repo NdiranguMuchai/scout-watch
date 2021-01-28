@@ -1,6 +1,7 @@
 package com.ndirangu.scoutwatch.controller;
 
 import com.ndirangu.scoutwatch.model.Coach;
+import com.ndirangu.scoutwatch.service.ClubService;
 import com.ndirangu.scoutwatch.service.CoachService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,9 +16,12 @@ import java.util.UUID;
 @RequestMapping("/coach")
 public class CoachController {
     private final CoachService coachService;
+    private final ClubService clubService;
 
-    public CoachController(CoachService coachService) {
+    public CoachController(CoachService coachService,
+                           ClubService clubService) {
         this.coachService = coachService;
+        this.clubService = clubService;
     }
 
     @ApiOperation(value = "Returns a list of all coaches")
@@ -47,4 +51,19 @@ public class CoachController {
         coach.setId(coachId);
         return coachService.update(coach);
     }
+
+    @ApiOperation(value = "Assigns a coach to a club")
+    @PutMapping("/{coachId}/update-club/{clubId}")
+    public @ResponseBody UUID assignClub(@PathVariable UUID coachId,
+                                         @PathVariable UUID clubId,
+                                          Coach coach) throws Exception{
+        coachService.findOne(coachId).orElseThrow(()-> new Exception("coach with id "+coachId+" not found"));
+
+        coach.setId(coachId);
+        coach.setName(coach.getName());
+        coach.setClub(clubService.findOne(clubId).orElseThrow(()-> new Exception("club with id "+clubId+" not found")));
+
+        return coachService.assignClub(clubId, coach);
+    }
+
 }
