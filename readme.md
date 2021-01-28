@@ -38,5 +38,5 @@ java -jar target/*.jar
 ./mvnw spring-boot:run
 ```
 
-##API Documentation
+## API Documentation
 Once you run the application you can get documentation for the endpoints here: http://localhost:8080/swagger-ui.html#/
